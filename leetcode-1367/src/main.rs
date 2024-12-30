@@ -16,14 +16,6 @@ impl ListNode {
     }
 }
 
-fn print_list(mut head: &Option<Box<ListNode>>) {
-    while let Some(node) = head {
-        print!("{}, ", node.val);
-        head = &node.next;
-    }
-    println!();
-}
-
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
@@ -40,18 +32,6 @@ impl TreeNode {
             left: None,
             right: None,
         }
-    }
-}
-
-fn print_tree(root: &Option<Rc<RefCell<TreeNode>>>, depth: usize) {
-    if let Some(node) = root {
-        let node = node.borrow();
-        for _ in 0..depth {
-            print!("  ");
-        }
-        println!("- {}", node.val);
-        print_tree(&node.left, depth + 1);
-        print_tree(&node.right, depth + 1);
     }
 }
 
